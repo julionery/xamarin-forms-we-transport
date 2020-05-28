@@ -4,7 +4,7 @@
 
 :mortar_board: Projeto Final do TCC da Pós Graduação em Desenvolvimento para Internet e Dispositivos Móveis.
 
-#### :ballot_box_with_check: [APP DEMO ANDROID](https://github.com/julionery/xamarin-forms-we-transport/raw/master/Documents/com.nery.wetransport.apk "com.nery.wetransport.apk")
+#### :ballot_box_with_check: [APP DEMO ANDROID](https://github.com/julionery/docs/raw/master/WeTransport/com.nery.wetransport.apk "com.nery.wetransport.apk")
 
 #### :bookmark_tabs: Funcionalidades:
 - **Geral**
@@ -39,20 +39,20 @@
 
 #### :book: Publições:
 
-- [Artigo Prublicado no CEPEX-UNIRV](https://github.com/JulioNery/WeTransport/blob/master/Artigo%20WeTransport.pdf "WeTransport")
+- [Artigo Prublicado no CEPEX-UNIRV](https://github.com/julionery/docs/blob/master/WeTransport/Artigo%20WeTransport.pdf "WeTransport")
 
-- [Banner Apresentado no CEPEX-UNIRV](https://github.com/JulioNery/WeTransport/blob/master/Painel%20II%20SPG%202019.pdf "Banner WeTransport")
+- [Banner Apresentado no CEPEX-UNIRV](https://github.com/julionery/docs/blob/master/WeTransport/Painel%20II%20SPG%202019.pdf "Banner WeTransport")
 
 ## :iphone: Aplicação:
 
 #### Login e Cadastro:
-![Image](https://raw.githubusercontent.com/JulioNery/WeTransport/master/Documents/login_cadastro.jpg)
+![Image](https://github.com/julionery/docs/blob/master/WeTransport/login_cadastro.jpg?raw=true)
 
 #### Perfil - Usuário:
 
-![Image](https://raw.githubusercontent.com/JulioNery/WeTransport/master/Documents/usuario.jpg)
+![Image](https://github.com/julionery/docs/blob/master/WeTransport/usuario.jpg?raw=true)
 
 
 #### Perfil - Prestador de Serviço:
 
-![Image](https://raw.githubusercontent.com/JulioNery/WeTransport/master/Documents/prestador.jpg)
+![Image](https://github.com/julionery/docs/blob/master/WeTransport/prestador.jpg?raw=true)
