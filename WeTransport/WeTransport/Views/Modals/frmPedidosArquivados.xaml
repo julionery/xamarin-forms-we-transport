@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="WeTransport.Views.Modals.frmPedidosArquivados">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Grid  BackgroundColor="White"
+                   VerticalOptions="FillAndExpand" 
+                   HorizontalOptions="FillAndExpand"
+                   RowSpacing="0" ColumnSpacing="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" BackgroundColor="#00adee" Padding="20,0,5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label FontAttributes="Bold" FontSize="Medium" VerticalOptions="CenterAndExpand" Text="Solicitação Arquivadas" TextColor="White"></Label>
+                    <Image HeightRequest="30" WidthRequest="30" BackgroundColor="Transparent" Grid.Column="1" Source="ic_close.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="btnFechar_Clicked" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                    <Grid Padding="0,10,10,0" VerticalOptions="Center">
+                        <SearchBar x:Name="txtPesquisa" 
+                           Placeholder="Pesquisar..." 
+                           TextChanged="TxtPesquisa_TextChanged" />
+                    </Grid>
+
+                    <StackLayout Padding="15,0,15,0" VerticalOptions="Center">
+                        <Label HorizontalOptions="Start" Text="{Binding QtdTotalItens}" FontSize="Micro"/>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="#E4E4E4" HeightRequest="1"/>
+
+                    <ListView x:Name="grdPedidosArquivados"
+                          ItemsSource="{Binding Items}"
+                          VerticalOptions="FillAndExpand"
+                          HasUnevenRows="true"
+                          RefreshCommand="{Binding LoadItemsCommand}"
+                          IsPullToRefreshEnabled="true"
+                          IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                          CachingStrategy="RecycleElement"
+                          ItemSelected="GrdPedidosArquivados_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding Pessoa.NOME, StringFormat='Contato: {0}'}" 
+                                               Grid.Column="0"
+                                               LineBreakMode="NoWrap" 
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="16" />
+                                            <Label Text="{Binding DSC_STATUS}"
+                                                Grid.Row="0"
+                                                TextColor="{Binding DSC_COR}"
+									            HorizontalTextAlignment="End"
+                                                HorizontalOptions="End"
+                                                FontSize="Micro"
+						 			            VerticalOptions="Center"/>
+                                        </Grid>
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding DSC_COD_FRETE}" 
+                                           LineBreakMode="NoWrap"
+                                           FontSize="Micro"
+                                           Style="{DynamicResource ListItemDetailTextStyle}" />
+                                            <Label Text="{Binding DATA_ENVIO, StringFormat='{}{0:dd/MM/yyyy}'}" 
+                                           LineBreakMode="NoWrap"
+                                           FontSize="Micro"
+                                           HorizontalTextAlignment="End"
+                                           HorizontalOptions="End"
+                                           Style="{DynamicResource ListItemDetailTextStyle}" />
+                                        </Grid>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:PopupPage>

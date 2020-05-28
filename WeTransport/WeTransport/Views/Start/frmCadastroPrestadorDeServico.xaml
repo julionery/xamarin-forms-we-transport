@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:maskededit="clr-namespace:Syncfusion.XForms.MaskedEdit;assembly=Syncfusion.SfMaskedEdit.XForms"
+             x:Class="WeTransport.Views.Start.frmCadastroPrestadorDeServico"
+             Title="Prestador de Serviço">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <StackLayout  Padding="10,0,10,10">
+                <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="Todos os campos são obrigatórios!" FontSize="Micro"/>
+            </StackLayout>
+            <ScrollView>
+                <StackLayout Padding="12">
+
+                    <inputLayout:SfTextInputLayout
+                            Hint="Nome" 
+                            ContainerType="Outlined"
+                            FocusedColor="#00adee"
+	                        HelperText="Informe seu nome.">
+                        <Entry x:Name="txtNome"/>
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout
+                            Hint="E-mail" 
+                            ContainerType="Outlined"
+                            FocusedColor="#00adee"
+	                        ReserveSpaceForAssistiveLabels="False"
+                            HelperText="Informe seu e-mail.">
+                        <Entry x:Name="txtEmail" Keyboard="Email"/>
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout
+                            Hint="Telefone"
+                            ContainerType="Outlined"
+                            FocusedColor="#00adee"
+                            HelperText="Informe seu telefone.">
+                        <maskededit:SfMaskedEdit 
+                                x:Name="txtTelefone"
+                                Keyboard="Numeric"
+                                Mask="+55 (00) 9 0000-0000"/>
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout
+                            Hint="CPF"
+                            ContainerType="Outlined"
+                            FocusedColor="#00adee"
+                            HelperText="Informe seu CPF.">
+                        <maskededit:SfMaskedEdit
+                                x:Name="txtCPF"
+                                Keyboard="Numeric"
+                                Mask="000,000,000-00" />
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout
+                            Hint="Carteira de Motorista" 
+                            ContainerType="Outlined"
+                            FocusedColor="#00adee"
+	                        ReserveSpaceForAssistiveLabels="False"
+                            HelperText="Informe o número da sua CNH.">
+                        <Entry x:Name="txtCNH" Keyboard="Numeric" />
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout
+                            Hint="Senha"
+                            ContainerType="Outlined"
+                            FocusedColor="#00adee"
+                            HelperText="Sua senha deve conter no mínimo 6 caracteres."
+                            EnablePasswordVisibilityToggle="True">
+                        <Entry x:Name="txtSenha" IsPassword="True"/>
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout
+                            Hint="Confirmar Senha"
+                            ContainerType="Outlined"
+                            HelperText="Informe sua senha novamente."
+                            FocusedColor="#00adee"
+                            EnablePasswordVisibilityToggle="True">
+                        <Entry x:Name="txtConfirmaSenha" IsPassword="True"/>
+                    </inputLayout:SfTextInputLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <Button
+                    x:Name="btnSalvar"
+                    Image="ic_save.png"
+                    WidthRequest="49"
+                    HeightRequest="49"
+                    CornerRadius="28"
+                    Clicked="BtnSalvar_Clicked"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#00adee"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-75}"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-75}"
+                    />
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

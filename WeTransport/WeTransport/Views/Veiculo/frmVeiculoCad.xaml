@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="WeTransport.Views.Veiculo.frmVeiculoCad"
+             Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnSalvar" Icon="ic_save.png" Clicked="BtnSalvar_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="12">
+                <Label x:Name="lblCode" IsVisible="False" HorizontalTextAlignment="End" FontSize="Micro" Margin="0,0,10,0"/>
+                <inputLayout:SfTextInputLayout
+                            Hint="Nome" 
+                            ContainerType="Outlined"
+                            FocusedColor="#00adee"
+                            HelperText="*Obrigatório">
+                    <Entry x:Name="txtNome" Text="{Binding Item.NOME}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout
+                            Hint="Descrição" 
+                            ContainerType="Outlined"
+                            FocusedColor="#00adee">
+                    <Entry x:Name="txtDescricao" Text="{Binding Item.DESCRICAO}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout
+                            Hint="Placa" 
+                            ContainerType="Outlined"
+                            HelperText="*Obrigatório"
+                            FocusedColor="#00adee">
+                    <Entry x:Name="txtPlaca" Text="{Binding Item.PLACA}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout
+                            Hint="Modelo" 
+                            ContainerType="Outlined"
+                            HelperText="*Obrigatório"
+                            FocusedColor="#00adee">
+                    <Entry x:Name="txtModelo" Text="{Binding Item.MODELO}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout
+                            Hint="Cor" 
+                            ContainerType="Outlined"
+                            HelperText="*Obrigatório"
+                            FocusedColor="#00adee">
+                    <Entry x:Name="txtCor" Text="{Binding Item.COR}"/>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout
+                            Hint="Tipo" 
+                            ContainerType="Outlined"
+                            FocusedColor="#00adee">
+                    <Picker x:Name="cboTipo" Title="Tipo" SelectedIndex="{Binding Item.TIPO}" HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                            <x:String>Moto/Motocicleta</x:String>
+                            <x:String>Carro/Automóvel</x:String>
+                            <x:String>Van</x:String>
+                            <x:String>Ônibus</x:String>
+                            <x:String>Microônibus</x:String>
+                            <x:String>Caminhão</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </inputLayout:SfTextInputLayout>
+
+                <inputLayout:SfTextInputLayout
+                            Hint="Obs." 
+                            ContainerType="Outlined"
+                            FocusedColor="#00adee">
+                    <Editor x:Name="txtObs" Text="{Binding Item.OBS}" HeightRequest="100"/>
+                </inputLayout:SfTextInputLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

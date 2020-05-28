@@ -1,0 +1,10 @@
+.vs/
+WeTransport\WeTransport.Android\google-services.json
+WeTransport/WeTransport/bin/
+WeTransport/WeTransport/obj/
+WeTransport/WeTransport.Android/bin/
+WeTransport/WeTransport.Android/obj/
+WeTransport/WeTransport.iOS/bin/
+WeTransport/WeTransport.iOS/obj/
+WeTransport/WeTransport.UWP/bin/
+WeTransport/WeTransport.UWP/obj/

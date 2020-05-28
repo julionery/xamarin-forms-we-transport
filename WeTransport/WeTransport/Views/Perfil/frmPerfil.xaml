@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeTransport.Views.Perfil.frmPerfil"
+             xmlns:vm="clr-namespace:WeTransport.ViewModels.Perfil"
+             Title="{Binding Title}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnEditar" Icon="ic_edit.png" Clicked="BtnEditar_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.BindingContext>
+        <vm:PerfilViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Frame IsClippedToBounds="True" HasShadow="True" BackgroundColor="White" CornerRadius="10">
+                    <Frame.OutlineColor>
+                        <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="Gray"/>
+                    </Frame.OutlineColor>
+                    <Frame.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" Android="7" iOS="7"/>
+                    </Frame.Margin>
+                    <Frame.Padding>
+                        <OnPlatform x:TypeArguments="Thickness" Android="5" iOS="5"/>
+                    </Frame.Padding>
+                    <Grid Padding="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0"
+                               x:Name="lblUsuario"
+                               Text="DADOS GERAIS" 
+                               FontAttributes="Bold"
+                               LineBreakMode="NoWrap" 
+                               HorizontalOptions="CenterAndExpand"
+                               FontSize="16" 
+                                   />
+                        <Label Grid.Row="1"
+                               x:Name="lblNome"
+                                    />
+                        <Label Grid.Row="2"
+                               x:Name="lblEmail"
+                                    />
+                        <Label Grid.Row="3"
+                               x:Name="lblTelefone"
+                                    />
+                        <Label Grid.Row="4"
+                               x:Name="lblCPF"
+                                    />
+                        <Label Grid.Row="5"
+                               x:Name="lblCNH"
+                               IsVisible="False"
+                                    />
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

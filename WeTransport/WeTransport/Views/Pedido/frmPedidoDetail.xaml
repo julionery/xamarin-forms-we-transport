@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="WeTransport.Views.Pedido.frmPedidoDetail">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnSalvar" Icon="ic_save.png" Clicked="BtnSalvar_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                    
+                <inputLayout:SfTextInputLayout
+                    x:Name="grdStatus"
+                    Grid.Column="0" 
+                    Hint="Atualizar Status" 
+                    ContainerType="Outlined"
+                    FocusedColor="#00adee">
+                    <Picker x:Name="cboStatus" Title="Tipo" SelectedIndex="{Binding Item.STATUS}" HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                            <x:String>EM ABERTO</x:String>
+                            <x:String>RESERVADO</x:String>
+                            <x:String>A CAMINHO</x:String>
+                            <x:String>SAIO PARA ENTREGA</x:String>
+                            <x:String>CONCLUÍDO</x:String>
+                            <x:String>CANCELADO</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </inputLayout:SfTextInputLayout>
+                    
+                <Frame IsClippedToBounds="True" HasShadow="True" BackgroundColor="White" CornerRadius="10">
+                    <Frame.OutlineColor>
+                        <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="Gray"/>
+                    </Frame.OutlineColor>
+                    <Frame.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" Android="7" iOS="7"/>
+                    </Frame.Margin>
+                    <Frame.Padding>
+                        <OnPlatform x:TypeArguments="Thickness" Android="5" iOS="5"/>
+                    </Frame.Padding>
+                    <Grid Padding="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0"
+                                Text="{Binding Item.DSC_COD_FRETE}" 
+                                FontAttributes="Bold"
+                                LineBreakMode="NoWrap" 
+                                HorizontalOptions="CenterAndExpand"
+                                FontSize="16" 
+                            />
+                        <Label Grid.Row="1" 
+                                x:Name="lblContato"
+                                LineBreakMode="NoWrap" 
+                            />
+                        <Label Grid.Row="2"
+                                Text="{Binding Item.DESCRICAO, StringFormat='Informações: {0}'}" 
+                            />
+                        <Label Grid.Row="3"
+                                Text="{Binding Item.LOCAL_DESTINO, StringFormat='Local Destino: {0}'}" 
+                            />
+                        <Label Grid.Row="4"
+                                Text="{Binding Item.DATA_ENVIO, StringFormat='Data da Solicitação: {0:dd/MM/yyyy}'}" 
+                            />
+                        <Label Grid.Row="5"
+                                Text="{Binding Item.OBS, StringFormat='Obs.: {0}'}" 
+                            />
+                    </Grid>
+                </Frame>
+
+                <Frame IsClippedToBounds="True" HasShadow="True" BackgroundColor="White" CornerRadius="10">
+                    <Frame.OutlineColor>
+                        <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="Gray"/>
+                    </Frame.OutlineColor>
+                    <Frame.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" Android="7" iOS="7"/>
+                    </Frame.Margin>
+                    <Frame.Padding>
+                        <OnPlatform x:TypeArguments="Thickness" Android="5" iOS="5"/>
+                    </Frame.Padding>
+                    <Grid Padding="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0"
+                                x:Name="lblUsuario"
+                                Text="CONTATO" 
+                                FontAttributes="Bold"
+                                LineBreakMode="NoWrap" 
+                                HorizontalOptions="CenterAndExpand"
+                                FontSize="16" 
+                            />
+                        <Label Grid.Row="1"
+                                x:Name="lblNome"
+                            />
+                        <Label Grid.Row="2"
+                                x:Name="lblEmail"
+                            />
+                        <Label Grid.Row="3"
+                                x:Name="lblTelefone"
+                            />
+                    </Grid>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

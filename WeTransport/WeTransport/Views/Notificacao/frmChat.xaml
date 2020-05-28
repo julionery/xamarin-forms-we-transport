@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:local="clr-namespace:WeTransport.Components"
+             x:Class="WeTransport.Views.Notificacao.frmChat">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:SeletorTemplateChat x:Key="MessageTemplateSelector"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <sync:SfListView Grid.Row="1" x:Name="ListView" IsBusy="True" 
+                             ItemTemplate="{StaticResource MessageTemplateSelector}" 
+                             ItemsSource="{Binding Messages}"
+                             ItemSize="100" 
+                             AutoFitMode="Height">
+                <sync:SfListView.HeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid IsVisible="{Binding GridIsVisible}">
+                                    <Button IsVisible="False" BackgroundColor="Transparent" TextColor="#138A7E" x:Name="btnAbrirMais" Text="Ver mais..." Clicked="btnAbrirMais_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                </Grid>
+                                <sync:LoadMoreIndicator Color="#138A7E" IsRunning="True" IsVisible="{Binding IndicatorIsVisible}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </sync:SfListView.HeaderTemplate>
+            </sync:SfListView>
+
+            <Grid Grid.Row="2" Padding="15,10,15,10"
+                  BackgroundColor="#EFEFF4"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Entry Grid.Column="0" Placeholder="Digite alguma coisa..." FontSize="14" Text="{Binding NewText}"></Entry>
+                <Grid Grid.Column="1">
+                    <Image Grid.Column="1" HorizontalOptions="End" BackgroundColor="Transparent" Source="ic_send_button.png" HeightRequest="24" WidthRequest="24">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SendCommand}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+            </Grid>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

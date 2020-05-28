@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeTransport.Views.Check.frmCheckLista"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+            <Grid Padding="0,10,10,0" VerticalOptions="Center">
+                <SearchBar x:Name="txtPesquisa" 
+                           Placeholder="Pesquisar..." 
+                           TextChanged="TxtPesquisa_TextChanged" />
+            </Grid>
+
+            <StackLayout Padding="15,0,15,0" VerticalOptions="Center">
+                <Label HorizontalOptions="Start" Text="{Binding QtdTotalItens}" FontSize="Micro"/>
+            </StackLayout>
+
+            <StackLayout BackgroundColor="#E4E4E4" HeightRequest="1"/>
+
+            <ListView x:Name="grdCheck"
+                          ItemsSource="{Binding Items}"
+                          VerticalOptions="FillAndExpand"
+                          HasUnevenRows="true"
+                          RefreshCommand="{Binding LoadItemsCommand}"
+                          IsPullToRefreshEnabled="true"
+                          IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                          CachingStrategy="RecycleElement"
+                          ItemSelected="GrdCheck_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Pessoa.NOME, StringFormat='Contato: {0}'}" 
+                                               Grid.Column="0"
+                                               LineBreakMode="NoWrap" 
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="16" />
+                                    <Label Text="{Binding DSC_STATUS}"
+                                                Grid.Row="0"
+                                                TextColor="{Binding DSC_COR}"
+									            HorizontalTextAlignment="End"
+                                                HorizontalOptions="End"
+                                                FontSize="Micro"
+						 			            VerticalOptions="Center"/>
+                                </Grid>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding DSC_COD_FRETE}" 
+                                           LineBreakMode="NoWrap"
+                                           FontSize="Micro"
+                                           Style="{DynamicResource ListItemDetailTextStyle}" />
+                                    <Label Text="{Binding DATA_ENVIO, StringFormat='{}{0:dd/MM/yyyy}'}" 
+                                           LineBreakMode="NoWrap"
+                                           FontSize="Micro"
+                                           HorizontalTextAlignment="End"
+                                           HorizontalOptions="End"
+                                           Style="{DynamicResource ListItemDetailTextStyle}" />
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

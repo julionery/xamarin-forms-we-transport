@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+                 x:Class="WeTransport.Views.Check.frmCheckMap">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinInOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+
+    <StackLayout Padding="20">
+        <Grid BackgroundColor="White" 
+              VerticalOptions="FillAndExpand" 
+              HorizontalOptions="FillAndExpand" 
+              ColumnSpacing="0"
+              RowSpacing="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid BackgroundColor="#00adee" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" BackgroundColor="Transparent" HeightRequest="50" WidthRequest="50" Image="ic_back_24.png" x:Name="btnClose" Clicked="btnClose_Clicked"></Button>
+                    <Label  Grid.Column="1" FontAttributes="Bold" Text="MAPA" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    <Button Grid.Column="2" BackgroundColor="Transparent" HeightRequest="50" WidthRequest="50" Image="ic_save_white_24.png" x:Name="btnSalvar" Clicked="btnSalvar_Clicked"></Button>
+                </Grid>
+            </Grid>
+            
+            <Grid Grid.Row="1" x:Name="lblError" IsVisible="False" BackgroundColor="White" Padding="10">
+                <Label TextColor="Red" Text="Nenhuma localização encontrada!" HorizontalOptions="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="2" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <maps:Map x:Name="map" VerticalOptions="FillAndExpand" />
+                
+            </Grid>
+        </Grid>
+    </StackLayout>
+</pages:PopupPage>

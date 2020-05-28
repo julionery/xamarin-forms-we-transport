@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeTransport.Views.Veiculo.frmVeiculoLista"
+             xmlns:vm="clr-namespace:WeTransport.ViewModels.Veiculo"
+             Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <RelativeLayout x:Name="rltLayout">
+            <StackLayout  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}" 
+                          VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <Grid Padding="0,10,10,0" VerticalOptions="Center">
+                    <SearchBar x:Name="txtPesquisa" 
+                               Placeholder="Pesquisar..." 
+                               TextChanged="TxtPesquisa_TextChanged" />
+                </Grid>
+                
+                <StackLayout Padding="15,0,15,0" VerticalOptions="Center">
+                    <Label HorizontalOptions="Start" Text="{Binding QtdTotalItens}" FontSize="Micro"/>
+                </StackLayout>
+
+                <ListView x:Name="grdVeiculos"
+                          ItemsSource="{Binding Items}"
+                          VerticalOptions="FillAndExpand"
+                          HasUnevenRows="true"
+                          RefreshCommand="{Binding LoadItemsCommand}"
+                          IsPullToRefreshEnabled="true"
+                          IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                          CachingStrategy="RecycleElement"
+                          ItemSelected="Lista_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="OnDelete" 
+                                              Text="DELETAR"
+                                              CommandParameter="{Binding .}" 
+                                              Icon="ic_trash.png" 
+                                              IsDestructive="True" />
+                                </ViewCell.ContextActions>
+                                
+                                <StackLayout Padding="10">
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding NOME}" 
+                                               Grid.Column="0"
+                                               LineBreakMode="NoWrap" 
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="16" />
+                                        <Label Text="{Binding DSC_TIPO}"
+                                               Grid.Column="1"
+									           HorizontalTextAlignment="End"
+                                               HorizontalOptions="End"
+                                               FontAttributes="Bold" 
+                                               FontSize="Micro"
+						 			           VerticalOptions="Center"/>
+                                    </Grid>
+                                    
+                                    <Label Text="{Binding DESCRICAO}" 
+                                           LineBreakMode="NoWrap"
+                                           FontSize="Micro"
+                                           Style="{DynamicResource ListItemDetailTextStyle}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button x:Name="btnNovo"
+                    Image="add.png"
+                    WidthRequest="55"
+                    HeightRequest="55"
+                    CornerRadius="28"
+                    Clicked="BtnNovo_Clicked"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#00adee"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-75}"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-75}"
+                />
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

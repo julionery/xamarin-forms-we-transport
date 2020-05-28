@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="WeTransport.Views.Start.frmLogin">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Grid VerticalOptions="Center">
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>
+                </Grid.Padding>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Padding="0,30,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ffimageloading:CachedImage Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"
+			                                    WidthRequest="250" HeightRequest="250"
+                                                Margin="0,0,30,0"
+			                                    DownsampleToViewSize="true"
+			                                    Source = "logo2.png">
+                    </ffimageloading:CachedImage>
+                    <Label Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" Text="WeTransport" FontAttributes="Bold" FontSize="32"  TextColor="#00adee"/>
+                </Grid>
+                
+                <StackLayout Grid.Row="1" Padding="20,10,20,0" Orientation="Vertical">
+                    <StackLayout BackgroundColor="White" Padding="10">
+                        <Entry x:Name="txtUsuario" Placeholder="E-mail..." Keyboard="Email" />
+                        <Entry x:Name="txtSenha" IsPassword="True" Placeholder="Senha..." />
+                    </StackLayout>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button CornerRadius="10" Grid.Column="0" x:Name="btnLogin" FontSize="Small" Text="ENTRAR" TextColor="White" BackgroundColor="#00adee" Clicked="btnLogin_Clicked"></Button>
+                        <Button CornerRadius="25" Grid.Column="1" x:Name="btnCadastro" TextColor="White" BackgroundColor="#00adee" Clicked="btnCadastro_Clicked" Image="ic_add_contact.png" WidthRequest="50"></Button>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

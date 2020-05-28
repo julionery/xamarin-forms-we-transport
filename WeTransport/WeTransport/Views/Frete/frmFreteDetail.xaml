@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeTransport.Views.Frete.frmFreteDetail">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="lblCode" HorizontalTextAlignment="End" FontSize="Micro" Margin="0,0,10,0"/>
+                <StackLayout Padding="10,0,10,10">
+                    
+                    <Frame IsClippedToBounds="True" HasShadow="True" BackgroundColor="White" CornerRadius="10">
+                        <Frame.OutlineColor>
+                            <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="Gray"/>
+                        </Frame.OutlineColor>
+                        <Frame.Margin>
+                            <OnPlatform x:TypeArguments="Thickness" Android="7" iOS="7"/>
+                        </Frame.Margin>
+                        <Frame.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" Android="5" iOS="5"/>
+                        </Frame.Padding>
+                        <Grid Padding="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0"
+                                   Text="{Binding Item.DSC_TIPO}" 
+                                   FontAttributes="Bold"
+                                   LineBreakMode="NoWrap" 
+                                   HorizontalOptions="CenterAndExpand"
+                                   FontSize="16" 
+                               />
+                            <Label Grid.Row="1"
+                                   x:Name="lblLocalPartida"
+                               />
+                            <Label Grid.Row="2"
+                                   x:Name="lblLocalDestino"
+                                   IsVisible="False"
+                               />
+                            <Label Grid.Row="3"
+                                   x:Name="lblDisponibilidade"
+                               />
+                            <Label Grid.Row="4"
+                                   x:Name="lblValor"
+                                   HorizontalOptions="End"
+                               />
+                        </Grid>
+                    </Frame>
+                    
+                    <Frame IsClippedToBounds="True" HasShadow="True" BackgroundColor="White" CornerRadius="10">
+                        <Frame.OutlineColor>
+                            <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="Gray"/>
+                        </Frame.OutlineColor>
+                        <Frame.Margin>
+                            <OnPlatform x:TypeArguments="Thickness" Android="7" iOS="7"/>
+                        </Frame.Margin>
+                        <Frame.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" Android="5" iOS="5"/>
+                        </Frame.Padding>
+                        <Grid Padding="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0"
+                                   Text="DADOS DO VEÍCULO" 
+                                   FontAttributes="Bold"
+                                   LineBreakMode="NoWrap" 
+                                   HorizontalOptions="CenterAndExpand"
+                                   FontSize="16" 
+                               />
+
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Item.VEICULO.NOME}" 
+                                       Grid.Column="0"
+                                       LineBreakMode="NoWrap"
+                                       />
+                                <Label Text="{Binding Item.DSC_TIPO_VEICULO}" 
+                                       Grid.Column="1"
+								       HorizontalTextAlignment="End"
+                                       LineBreakMode="NoWrap"
+                                       FontSize="Micro"
+                                       />
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" x:Name="lblModelo" />
+                                <Label Grid.Column="1" x:Name="lblCor" />
+                            </Grid>
+
+                            <Label Grid.Row="3"
+                                   FontSize="Small"
+                                   x:Name="lblDescricao"
+                                />
+                            <Label Grid.Row="4"
+                                   FontSize="Small"
+                                   x:Name="lblObs"
+                                />
+                        </Grid>
+                    </Frame>
+
+                    <Frame IsClippedToBounds="True" HasShadow="True" BackgroundColor="White" CornerRadius="10">
+                        <Frame.OutlineColor>
+                            <OnPlatform x:TypeArguments="Color" Android="Gray" iOS="Gray"/>
+                        </Frame.OutlineColor>
+                        <Frame.Margin>
+                            <OnPlatform x:TypeArguments="Thickness" Android="7" iOS="7"/>
+                        </Frame.Margin>
+                        <Frame.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" Android="5" iOS="5"/>
+                        </Frame.Padding>
+                        <Grid Padding="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0"
+                                   Text="PRESTADOR DE SERVIÇO" 
+                                   FontAttributes="Bold"
+                                   LineBreakMode="NoWrap" 
+                                   HorizontalOptions="CenterAndExpand"
+                                   FontSize="16" 
+                               />
+                            <Label Grid.Row="1"
+                                   x:Name="lblNome"
+                                />
+                            <Label Grid.Row="2"
+                                   x:Name="lblEmail"
+                                />
+                            <Label Grid.Row="3"
+                                   x:Name="lblTelefone"
+                                />
+
+                            <Grid Grid.Row="4" Padding="0,15,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button CornerRadius="10" Grid.Column="0" x:Name="btnSolicitarReserva" FontSize="Small" Text="SOLICITAR RESERVA" TextColor="White" BackgroundColor="#00adee" HeightRequest="60" Clicked="BtnSolicitarReserva_Clicked"></Button>
+                                <Button CornerRadius="10" Grid.Column="1" x:Name="btnEntrarEmContato"  FontSize="Small" Text="ENTRAR EM CONTATO" TextColor="White" BackgroundColor="#00adee" HeightRequest="60" Clicked="BtnEntrarEmContato_Clicked"></Button>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                    
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

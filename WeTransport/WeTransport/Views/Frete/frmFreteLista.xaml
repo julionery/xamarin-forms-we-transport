@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             x:Class="WeTransport.Views.Frete.frmFreteLista"
+             Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <RelativeLayout x:Name="rltLayout">
+            <StackLayout  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}" 
+                          VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <Grid Padding="0,10,10,0" VerticalOptions="Center">
+                    <SearchBar x:Name="txtPesquisa" 
+                               Text="{Binding Keyword}" 
+                               Placeholder="Pesquisar..." 
+                               SearchCommand="{Binding SearchCommand}"
+                               TextChanged="TxtPesquisa_TextChanged" />
+                </Grid>
+                
+                <StackLayout Padding="15,0,15,0" VerticalOptions="Center">
+                    <Label HorizontalOptions="Start" Text="{Binding QtdTotalItens}" FontSize="Micro"/>
+                </StackLayout>
+                
+                <StackLayout BackgroundColor="#E4E4E4" HeightRequest="1"/>
+
+                <ListView x:Name="grdFretes"
+                          ItemsSource="{Binding Items}"
+                          VerticalOptions="FillAndExpand"
+                          HasUnevenRows="true"
+                          SeparatorVisibility="None"
+                          RefreshCommand="{Binding LoadItemsCommand}"
+                          IsPullToRefreshEnabled="true"
+                          IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                          CachingStrategy="RecycleElement"
+                          ItemSelected="Lista_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <cards:SfCardView IndicatorColor="{Binding DSC_COR}" IndicatorThickness="10" IndicatorPosition="Left" >
+                                    <Grid Padding="5,10,15,10" VerticalOptions="CenterAndExpand" RowSpacing="1" ColumnSpacing="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Text="{Binding DSC_COD_FRETE}" 
+                                                Grid.Row="0"
+                                                LineBreakMode="NoWrap" 
+                                                Style="{DynamicResource ListItemTextStyle}" 
+                                                FontSize="Small" />
+                                        <Label Text="{Binding DSC_STATUS}"
+                                                Grid.Row="0"
+                                                TextColor="{Binding DSC_COR}"
+									            HorizontalTextAlignment="End"
+                                                HorizontalOptions="End"
+                                                FontSize="Micro"
+						 			            VerticalOptions="Center"/>
+                                        
+                                        <Label Text="{Binding DSC_TIPO}" 
+                                                Grid.Row="1"
+                                                FontAttributes="Bold"
+                                                LineBreakMode="NoWrap" 
+                                                Style="{DynamicResource ListItemTextStyle}" 
+                                                FontSize="16" />
+                                        <Label Text="{Binding VEICULO.NOME, StringFormat='Veículo: {0}'}" 
+                                                Grid.Row="2"
+                                                LineBreakMode="NoWrap"
+                                                FontSize="Small"
+                                                Style="{DynamicResource ListItemDetailTextStyle}" />
+                                        <Label Text="{Binding DSC_TIPO_VEICULO}" 
+                                                Grid.Row="2"
+									            HorizontalTextAlignment="End"
+                                                LineBreakMode="NoWrap"
+                                                FontSize="Micro"
+                                                Style="{DynamicResource ListItemDetailTextStyle}" />
+                                        
+                                        <Label Text="{Binding DSC_VALOR, StringFormat='Valor: {0}'}" 
+                                                Grid.Row="3"
+                                                LineBreakMode="NoWrap"
+                                                FontSize="Small"
+                                                Style="{DynamicResource ListItemDetailTextStyle}" />
+                                        
+                                        
+                                        <Label Text="{Binding DSC_DISPONIBILIDADE, StringFormat='Disponibilidade: {0}'}" 
+                                                Grid.Row="4"
+                                                LineBreakMode="NoWrap"
+                                                FontSize="Micro"
+                                                Style="{DynamicResource ListItemDetailTextStyle}" />
+                                        
+                                        <Label Text="{Binding OBS}" 
+                                                Grid.Row="5"
+                                                LineBreakMode="TailTruncation"
+                                                FontSize="Micro"
+                                                Style="{DynamicResource ListItemDetailTextStyle}" />
+                                    </Grid>
+                                </cards:SfCardView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <ImageButton x:Name="btnNovo"
+                    Source="add.png"
+                    Padding="10"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    Clicked="BtnNovo_Clicked"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#00adee"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-75}"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-75}"
+                />
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

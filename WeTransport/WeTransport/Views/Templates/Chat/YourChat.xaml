@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+          xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+          x:Class="WeTransport.Views.Templates.Chat.YourChat">
+    <Grid ColumnSpacing="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ffimageloading:CachedImage Grid.Column="0" Margin="12,16,0,16" Source="logo2.png"
+               HeightRequest="48" WidthRequest="48" 
+               HorizontalOptions="Center" VerticalOptions="Start">
+            <ffimageloading:CachedImage.Transformations>
+                <fftransformations:CircleTransformation />
+            </ffimageloading:CachedImage.Transformations>
+        </ffimageloading:CachedImage>
+        <Grid x:Name="gridLayout" Grid.Column="1" Margin="0,16,24,16" 
+              HorizontalOptions="Center" VerticalOptions="Center">
+            <Grid.ColumnSpacing>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On  Platform="Android, iOS">
+                        <OnIdiom x:TypeArguments="x:Double" Phone="-12" Tablet="-12" />
+                    </On>
+                </OnPlatform>
+            </Grid.ColumnSpacing>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0" >
+                <Image  Grid.Column="0" Margin="0,15,0,0"
+                       Source="IncomingIndicatorImage.png" 
+                       HeightRequest="20" WidthRequest="20" VerticalOptions="Start"/>
+            </Grid>
+            <ContentView x:Name="Customcontentview" Grid.Column="1" Grid.Row="0">
+                <ContentView.Content>
+                    <Frame x:Name="frame" Margin="0" CornerRadius="5" BackgroundColor="#c0eefc">
+                        <Frame.Content>
+                            <Grid Margin="-3">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Text}"
+                                       VerticalOptions="Center" Opacity="84" 
+                                       TextColor="Black" FontSize="14"/>
+                            </Grid>
+                        </Frame.Content>
+                    </Frame>
+                </ContentView.Content>
+            </ContentView>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="{Binding ContatoName}" Grid.Row="0" Grid.Column="0"
+                       TextColor="Gray" Margin="0" Opacity="54"
+                       HorizontalOptions="Start" VerticalOptions="Start" 
+                       Font="Bold" FontSize="12"/>
+                <Label Text="{Binding MessagDateTime}" Grid.Row="0" Grid.Column="1"
+                       TextColor="Gray" Opacity="54"
+                       HorizontalOptions="End" VerticalOptions="Start" 
+                       Font="Regular" FontSize="12"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</ViewCell>

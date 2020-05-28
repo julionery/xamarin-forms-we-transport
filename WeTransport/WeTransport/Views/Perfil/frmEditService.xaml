@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:maskededit="clr-namespace:Syncfusion.XForms.MaskedEdit;assembly=Syncfusion.SfMaskedEdit.XForms"
+             x:Class="WeTransport.Views.Perfil.frmEditService">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnSalvar" Icon="ic_save.png" Clicked="BtnSalvar_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        
+        <ScrollView>
+            <StackLayout Padding="12">
+                <inputLayout:SfTextInputLayout
+                        Hint="Nome" 
+                        ContainerType="Outlined"
+                        FocusedColor="#00adee"
+	                    HelperText="Informe seu nome.">
+                    <Entry x:Name="txtNome"/>
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout
+                        Hint="E-mail" 
+                        ContainerType="Outlined"
+                        FocusedColor="#00adee"
+	                    ReserveSpaceForAssistiveLabels="False"
+                        HelperText="Informe seu e-mail.">
+                    <Entry x:Name="txtEmail" Keyboard="Email" IsEnabled="False"/>
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout
+                        Hint="Telefone"
+                        ContainerType="Outlined"
+                        FocusedColor="#00adee"
+                        HelperText="Informe seu telefone.">
+                    <maskededit:SfMaskedEdit 
+                            x:Name="txtTelefone"
+                            Keyboard="Numeric"
+                            Mask="+55 (00) 9 0000-0000"/>
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout
+                        Hint="CPF"
+                        ContainerType="Outlined"
+                        FocusedColor="#00adee"
+                        HelperText="Informe seu CPF.">
+                    <maskededit:SfMaskedEdit
+                            x:Name="txtCPF"
+                            Keyboard="Numeric"
+                            IsEnabled="False"
+                            Mask="000,000,000-00" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout
+                        Hint="Carteira de Motorista" 
+                        ContainerType="Outlined"
+                        FocusedColor="#00adee"
+	                    ReserveSpaceForAssistiveLabels="False"
+                        HelperText="Informe o número da sua CNH.">
+                    <Entry x:Name="txtCNH" Keyboard="Numeric" />
+                </inputLayout:SfTextInputLayout>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
