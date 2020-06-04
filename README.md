@@ -1,4 +1,7 @@
-# WeTransport
+<h3 align="center">
+    <img alt="Logo" title="#logo" height="200px" src="https://github.com/julionery/xamarin-forms-we-transport/blob/master/WeTransport/WeTransport.Android/Resources/drawable/logo2.png">
+</h3>
+<h2 align="center">WeTransport</h2>
 
 ### Um aplicativo móvel para auxiliar no transporte de mercadorias e fretes.
 
@@ -56,3 +59,11 @@
 #### Perfil - Prestador de Serviço:
 
 ![Image](https://github.com/julionery/docs/blob/master/WeTransport/prestador.jpg?raw=true)
+
+
+---
+
+<h4 align="center">
+    Feito com ❤ por <a href="https://www.linkedin.com/in/julio-nery/" target="_blank">Júlio Nery</a>!
+    <g-emoji class="g-emoji" alias="wave" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png">👋</g-emoji>
+</h4>
