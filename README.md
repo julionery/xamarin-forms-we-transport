@@ -49,17 +49,25 @@
 ## :iphone: Aplicação:
 
 #### Login e Cadastro:
-![Image](https://github.com/julionery/docs/blob/master/WeTransport/login_cadastro.jpg?raw=true)
+<h3 align="center">
+<img alt="Login" title="Login" width="250px" src="https://github.com/julionery/docs/blob/master/WeTransport/we-transport-login.gif?raw=true">
+</h3>
 
 #### Perfil - Usuário:
 
-![Image](https://github.com/julionery/docs/blob/master/WeTransport/usuario.jpg?raw=true)
-
+<h3 align="center">
+<img alt="User" title="User" width="250px" src="https://github.com/julionery/docs/blob/master/WeTransport/we-transport-user-1.gif?raw=true">&nbsp;&nbsp;&nbsp;
+<img alt="User" title="User" width="250px" src="https://github.com/julionery/docs/blob/master/WeTransport/we-transport-user-2.gif?raw=true">&nbsp;&nbsp;&nbsp;
+<img alt="Maps" title="Maps" width="271px" src="https://github.com/julionery/docs/blob/master/WeTransport/we-transport-user-maps.png?raw=true">
+</h3>
 
 #### Perfil - Prestador de Serviço:
 
-![Image](https://github.com/julionery/docs/blob/master/WeTransport/prestador.jpg?raw=true)
-
+<h3 align="center">
+<img alt="Mobile" title="Mobile" width="250px" src="https://github.com/julionery/docs/blob/master/WeTransport/we-transport-prestador-1.gif?raw=true">&nbsp;&nbsp;&nbsp;
+<img alt="Service" title="Service" width="250px" src="https://github.com/julionery/docs/blob/master/WeTransport/we-transport-prestador-2.gif?raw=true">&nbsp;&nbsp;&nbsp;
+    <img alt="Maps" title="Maps" width="271px" src="https://github.com/julionery/docs/blob/master/WeTransport/we-transport-prestador-maps.png?raw=true">
+</h3>
 
 ---
 
