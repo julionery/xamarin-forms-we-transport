@@ -69,6 +69,19 @@
     <img alt="Maps" title="Maps" width="271px" src="https://github.com/julionery/docs/blob/master/WeTransport/we-transport-prestador-maps.png?raw=true">
 </h3>
 
+## :link: Como contribuir
+
+- Faça um **fork** do projeto;
+- Crie uma nova branch com as suas alterações: `git checkout -b my-feature`
+- Salve as alterações e crie uma mensagem de commit contando o que você fez:`git commit -m "feature: My new feature"`
+- Envie as suas alterações: `git push origin my-feature`
+
+> Caso tenha alguma dúvida confira este [guia de como contribuir no GitHub](https://github.com/firstcontributions/first-contributions).
+<a id="licenca"></a>
+
+## :memo: Licença
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
 ---
 
 <h4 align="center">
